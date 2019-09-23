@@ -4,7 +4,7 @@ import {
   SEARCH_ENTITIES,
   SEARCH_ASYNC_ENTITIES,
   IS_LOADING
-} from "../action-types/index";
+} from '../action-types/index';
 
 export function openModal(mediaId) {
   return {
@@ -12,21 +12,21 @@ export function openModal(mediaId) {
     payload: {
       mediaId
     }
-  };
+  }
 }
 
 export function closeModal() {
   return {
-    type: CLOSE_MODAL
-  };
+    type: CLOSE_MODAL,
+  }
 }
 export function searchEntities(query) {
   return {
     type: SEARCH_ENTITIES,
     payload: {
-      query
+      query,
     }
-  };
+  }
 }
 
 export function isLoading(value) {
@@ -35,19 +35,23 @@ export function isLoading(value) {
     payload: {
       value
     }
-  };
+  }
 }
 
 export function searchAsyncEntities(query) {
-  return dispatch => {
+  return (dispatch) => {
     // fetch().then(()=>)
     // XHR
     // trae
-    dispatch(isLoading(true));
+    dispatch(isLoading(true))
 
-    setTimeout(() => {
-      dispatch(isLoading(false));
-      dispatch(searchEntities(query));
-    }, 5000);
-  };
+    setTimeout(()=> {
+
+      dispatch(isLoading(false))
+      dispatch(searchEntities(query))
+
+    }, 5000)
+  }
+
 }
+
